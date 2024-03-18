@@ -1,0 +1,22 @@
+{
+  "name": "assets",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tailwind-dev": "npx tailwindcss -i ./static/css/input.css -o ./dist/assets/output.css --watch",
+    "tailwind-build": "npx tailwindcss -i ./static/css/input.css -o ./dist/assets/output.css -m"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.7",
+    "flowbite": "^2.3.0",
+    "htmx.org": "^1.9.10"
+  }
+}
