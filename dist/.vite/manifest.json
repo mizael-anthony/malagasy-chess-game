@@ -1,0 +1,7 @@
+{
+  "node_modules/.pnpm/flowbite@2.3.0/node_modules/flowbite/dist/flowbite.js?commonjs-entry": {
+    "file": "flowbite.cjs",
+    "src": "node_modules/.pnpm/flowbite@2.3.0/node_modules/flowbite/dist/flowbite.js?commonjs-entry",
+    "isEntry": true
+  }
+}
