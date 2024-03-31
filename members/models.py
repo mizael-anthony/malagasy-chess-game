@@ -25,10 +25,13 @@ class CustomUserManager(BaseUserManager):
 		return user
 	
 	def create_user(self, email, password, **extra_fields):
+		last_name = extra_fields.get("last_name")
+		first_name = extra_fields.get("first_name")
+		username = f"{last_name[0].upper()}.{first_name.capitalize()}"
 		extra_fields.setdefault("is_active", False)
 		extra_fields.setdefault("is_staff", False)
 		extra_fields.setdefault("is_superuser", False)
-		extra_fields.setdefault("username", f"{self.last_name[0].upper()}.{self.first_name.capitalize()}")
+		extra_fields.setdefault("username", username)
 		return self._create_user(email, password, **extra_fields)
 
 	def create_superuser(self, email, password, **extra_fields):
@@ -45,7 +48,7 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractUser):
 
 	DEFAULT_PHOTO = 'img/anonymous.png'
-	SEXES = [('homme', 'Homme'), ('femme', 'Femme')]
+	GENDER = [('homme', 'Homme'), ('femme', 'Femme')]
 
 	username = models.CharField(max_length=150, unique=True, null=True, verbose_name="Nom d'utilisateur")
 	email = models.EmailField(max_length=250, unique=True, blank=False, verbose_name="Adresse Email")
@@ -53,7 +56,7 @@ class CustomUser(AbstractUser):
 	first_name = common_field.CustomCharField(max_length=150, blank=False, capitalcase=True, verbose_name="Prénoms")
 	photo = models.ImageField(default=DEFAULT_PHOTO, upload_to=get_photo_path, null=True, verbose_name="Photo")
 	birthday = models.DateField(blank=False, null=True, verbose_name="Date de naissance")
-	sex = models.CharField(max_length=10, choices=SEXES, null=True, verbose_name="Sexe")
+	sex = models.CharField(max_length=10, choices=GENDER, null=True, verbose_name="Sexe")
 	date_joined = models.DateTimeField(default=timezone.now, verbose_name="Date d'adhésion")
 	contacts = postgres_field.ArrayField(
 		base_field=models.CharField(max_length=10, blank=False, null=False, unique=True, validators=[validate_contact], verbose_name="Téléphone"),
