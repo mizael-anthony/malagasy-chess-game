@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block header %}
+    {% include "common/header.html" %}
+{% endblock header %}
+
 {% block content %}
 
 <section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
@@ -289,3 +293,8 @@
   </section>
 
 {% endblock content %}
+
+
+{% block footer %}
+    {% include "common/footer.html" %}
+{% endblock footer %}

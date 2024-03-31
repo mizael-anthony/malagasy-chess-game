@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'compressor',
     'common',
-    'home',
     'members',
     'blog',    
 ]
@@ -58,8 +57,8 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_UNIQUE_EMAIL = True
 
-LOGIN_REDIRECT_URL = 'home'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'common:home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'common:home'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
