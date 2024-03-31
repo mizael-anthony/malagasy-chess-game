@@ -1,6 +1,8 @@
 from factories import CustomUserFactory
 import pytest
 
-@pytest.fixture()
-def custom_user_fixture(db):
-  return CustomUserFactory()
+@pytest.fixture(scope="class")
+def custom_user_fixture(request):
+  fixture = CustomUserFactory()
+  yield fixture
+  del fixture
