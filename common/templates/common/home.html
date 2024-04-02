@@ -291,6 +291,11 @@
         </form>
     </div>
   </section>
+    {% if request.user.is_authenticated %}
+       <p>
+        Connected
+       </p>
+    {% endif %}
 
 {% endblock content %}
 

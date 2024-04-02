@@ -34,21 +34,22 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'widget_tweaks',
     'compressor',
     'common',
     'members',
     'blog',    
 ]
 
+
+AUTH_USER_MODEL = 'members.CustomUser'
 AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
+    'members.backends.CustomUserBackend',
 )
 
 SITE_ID = 1
 
-AUTH_USER_MODEL = 'members.CustomUser'
-
+# NOTE:  Django Allauth is not used yet
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
@@ -56,9 +57,10 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_LOGOUT_REDIRECT_URL = 'common:home'
 
 LOGIN_REDIRECT_URL = 'common:home'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'common:home'
+LOGOUT_REDIRECT_URL = 'common:home'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -50,7 +50,7 @@ class CustomUser(AbstractUser):
 	DEFAULT_PHOTO = 'img/anonymous.png'
 	GENDER = [('homme', 'Homme'), ('femme', 'Femme')]
 
-	username = models.CharField(max_length=150, unique=True, null=True, verbose_name="Nom d'utilisateur")
+	username = models.CharField(max_length=150, unique=True, blank=True, null=True, verbose_name="Nom d'utilisateur")
 	email = models.EmailField(max_length=250, unique=True, blank=False, verbose_name="Adresse Email")
 	last_name = common_field.CustomCharField(max_length=150, blank=False, uppercase=True, verbose_name="Nom")
 	first_name = common_field.CustomCharField(max_length=150, blank=False, capitalcase=True, verbose_name="Prénoms")
