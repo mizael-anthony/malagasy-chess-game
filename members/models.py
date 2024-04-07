@@ -6,6 +6,8 @@ from django.contrib.postgres import fields as postgres_field
 from .validators import validate_contact
 from django.utils import timezone
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
+
 
 
 def get_photo_path(self, filename):
@@ -51,13 +53,14 @@ class CustomUser(AbstractUser):
 	GENDER = [('homme', 'Homme'), ('femme', 'Femme')]
 
 	username = models.CharField(max_length=150, unique=True, blank=True, null=True, verbose_name="Nom d'utilisateur")
-	email = models.EmailField(max_length=250, unique=True, blank=False, verbose_name="Adresse Email")
+	email = models.EmailField(max_length=250, unique=True, blank=False, verbose_name=_("Email"))
 	last_name = common_field.CustomCharField(max_length=150, blank=False, uppercase=True, verbose_name="Nom")
 	first_name = common_field.CustomCharField(max_length=150, blank=False, capitalcase=True, verbose_name="Prénoms")
 	photo = models.ImageField(default=DEFAULT_PHOTO, upload_to=get_photo_path, null=True, verbose_name="Photo")
 	birthday = models.DateField(blank=False, null=True, verbose_name="Date de naissance")
-	sex = models.CharField(max_length=10, choices=GENDER, null=True, verbose_name="Sexe")
+	gender = models.CharField(max_length=10, choices=GENDER, null=True, verbose_name="Sexe")
 	date_joined = models.DateTimeField(default=timezone.now, verbose_name="Date d'adhésion")
+	adress = models.CharField(max_length=250, blank=False, verbose_name="Adresse")
 	contacts = postgres_field.ArrayField(
 		base_field=models.CharField(max_length=10, blank=False, null=False, unique=True, validators=[validate_contact], verbose_name="Téléphone"),
 		size=3
