@@ -12,5 +12,5 @@ class CustomUserCreationForm(UserCreationForm):
   )
   class Meta:
     model = CustomUser
-    fields = ('photo', 'email', 'password1', 'password2', 'last_name', 'first_name', 'gender', 'birthday', 'contacts', 'adress')
+    fields = ('photo', 'email', 'password1', 'password2', 'last_name', 'first_name', 'gender', 'birthday', 'contacts')
     exclude = ('username',)
