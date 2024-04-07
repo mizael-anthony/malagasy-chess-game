@@ -60,7 +60,7 @@ class CustomUser(AbstractUser):
 	birthday = models.DateField(blank=False, null=True, verbose_name="Date de naissance")
 	gender = models.CharField(max_length=10, choices=GENDER, null=True, verbose_name="Sexe")
 	date_joined = models.DateTimeField(default=timezone.now, verbose_name="Date d'adhésion")
-	adress = models.CharField(max_length=250, blank=False, verbose_name="Adresse")
+	description = models.TextField(max_length=250, blank=True, null=True, verbose_name=_("Description"))
 	contacts = postgres_field.ArrayField(
 		base_field=models.CharField(max_length=10, blank=False, null=False, unique=True, validators=[validate_contact], verbose_name="Téléphone"),
 		size=3
