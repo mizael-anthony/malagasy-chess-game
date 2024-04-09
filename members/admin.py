@@ -15,7 +15,7 @@ class CustomUserAdmin(UserAdmin):
     ('Informations personnelles', {
         'fields': (
             'photo', 'first_name', 'last_name', 'email',
-            'birthday', 'sex', 'contacts',
+            'birthday', 'gender', 'contacts',
             )
     }),
     ('Permissions', {
@@ -33,7 +33,7 @@ class CustomUserAdmin(UserAdmin):
     ('Informations personnelles', {
         'fields': (
             'photo', 'first_name', 'last_name', 'email',
-            'birthday', 'sex', 'contacts',
+            'birthday', 'gender', 'contacts',
         )
     }),
     ('Permissions', {
