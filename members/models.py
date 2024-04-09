@@ -8,8 +8,6 @@ from django.utils import timezone
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-
-
 def get_photo_path(self, filename):
 	file_extension = filename.split('.')[-1]
 	instance_id = self.pk
