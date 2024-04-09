@@ -13,7 +13,7 @@ from django.utils.translation import gettext_lazy as _
 def get_photo_path(self, filename):
 	file_extension = filename.split('.')[-1]
 	instance_id = self.pk
-	return f"img/members/{instance_id}.{file_extension}"
+	return f"img/members/user_{instance_id}.{file_extension}"
 
 class CustomUserManager(BaseUserManager):
 	def _create_user(self, email, password, **extra_fields):
@@ -80,7 +80,7 @@ class CustomUser(AbstractUser):
 
 	objects = CustomUserManager()
 	USERNAME_FIELD = 'email'
-	REQUIRED_FIELDS = ['last_name', 'first_name', 'sex', 'contacts']
+	REQUIRED_FIELDS = ['last_name', 'first_name', 'gender', 'contacts']
 
 	@admin.display(description="Age")
 	def get_user_age(self)->int:

@@ -9,8 +9,8 @@ class CustomUserFactory():
     'email': "test@yopmail.com",
     'password': "123456",
     'birthday': datetime.strptime("2010-10-05", "%Y-%m-%d").date(),
-    'sex': "homme",
-    'contacts': ["034 00 000 00", "032 00 000 00"]
+    'gender': "homme",
+    'contacts': ["0340000000", "0320000000"]
     }
 
   def user_without_email(self):
@@ -19,7 +19,7 @@ class CustomUserFactory():
     'first_name': "Test",
     'password': "123456",
     'birthday': datetime.strptime("2010-10-05", "%Y-%m-%d").date(),
-    'sex': "homme",
-    'contacts': ["034 00 000 00", "032 00 000 00"]
+    'gender': "homme",
+    'contacts': ["0340000000", "0320000000"]
     }
 

@@ -21,8 +21,11 @@ class SignUpView(generic.CreateView):
   template_name = "members/signup.html"
 
   def form_valid(self, form):
-      last_name = form.instance.last_name
-      first_name = form.instance.first_name
-      form.instance.username = f"{last_name[0].upper()}.{first_name.capitalize()}"
-      return super().form_valid(form)
+    last_name = form.instance.last_name
+    first_name = form.instance.first_name
+    form.instance.username = f"{last_name[0].upper()}.{first_name.capitalize()}"
+    return super().form_valid(form)
   
+class CustomUserListView(generic.ListView):
+  model = CustomUser
+  paginate_by = 12
