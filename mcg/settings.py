@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'compressor',
     'common',
     'members',
-    'blog',    
+    'blog',
+    'club'    
 ]
 
 

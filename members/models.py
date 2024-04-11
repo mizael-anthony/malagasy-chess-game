@@ -68,8 +68,8 @@ class CustomUser(AbstractUser):
 	is_superuser = models.BooleanField(default=False)
 	
 	class Meta:
-		verbose_name = "Utilisateur"
-		verbose_name_plural = "Utilisateurs"
+		verbose_name = _("User")
+		verbose_name_plural = _("Users")
 		ordering = ['-date_joined',]
 		constraints = [
 			models.UniqueConstraint(
