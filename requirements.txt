@@ -4,7 +4,7 @@ cffi==1.16.0
 charset-normalizer==3.3.2
 cryptography==42.0.5
 defusedxml==0.7.1
-Django==4.1
+Django==4.1.13
 django-allauth==0.61.1
 django-appconf==1.0.6
 django-compressor==4.4
